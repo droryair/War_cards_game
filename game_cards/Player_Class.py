@@ -30,7 +30,7 @@ add_card
  V  לקרוא על random.choice
 """
 import random
-from DeckOfCards_Class import DeckOfCards
+from game_cards.DeckOfCards_Class import DeckOfCards
 from game_cards.Cards_class import Card
 
 
@@ -66,7 +66,7 @@ class Player:
         """
         # checking the type of the variable deck_of_cards
         if type(deck_of_cards) != DeckOfCards:
-            raise TypeError(f"{deck_of_cards} is not of type DeckOfCards!")
+            raise TypeError(f"deck_of_cards is not of type DeckOfCards!")
 
         for i in range(self.cards_amount):
             # adding to 'self.deck' a random card from 'deck_of_cards', using the method 'deal_one' from the 'Card' class.
