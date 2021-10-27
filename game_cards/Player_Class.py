@@ -43,12 +43,18 @@ class Player:
         :param player_cards_amount: amount of cards to start the game (between 10 and 26, default: 26).
         """
         # checking for valid numbers of cards for the player (valid amount: 10 < amount < 26)
+        if type(player_cards_amount) != int:
+            if type(player_cards_amount) == str and player_cards_amount.isnumeric():
+                player_cards_amount = int(player_cards_amount)
+            else:
+                raise ValueError(f"{player_cards_amount} is not of type int!")
+
         if player_cards_amount > 26 or player_cards_amount < 10:
             self.cards_amount = 26
         else:
             self.cards_amount = player_cards_amount
 
-        self.name = player_name
+        self.name = str(player_name)  # turning the player's name into a string, to avoid future errors.
         self.deck = []  # player's deck will include instances of the 'Card' class.
 
     def __str__(self):
@@ -92,3 +98,21 @@ class Player:
             raise TypeError(f"{card} is not of type Card!")
 
         self.deck.append(card)
+
+
+if __name__ == '__main__':
+    new_card = Card(4, 4)
+    new_player = Player(234, 13)
+    new_deck = DeckOfCards()
+
+    new_player.set_hand(new_deck)
+    print(len(new_player.deck))
+    new_player.get_card()
+    print(len(new_player.deck))
+    new_player.add_card(new_deck.deal_one())
+    new_player.add_card(new_deck.deal_one())
+    new_player.add_card(new_deck.deal_one())
+    print(len(new_player.deck))
+
+
+    # print(new_player)
