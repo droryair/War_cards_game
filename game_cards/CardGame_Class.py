@@ -33,8 +33,6 @@ class CardGame:
         self.player2 = Player(player_name2, num_of_cards)
         self.new_game()
 
-
-
     def new_game(self):
         if inspect.stack()[1][3] != "__init__":
             raise SystemError("The Function new_game() activated more than one time!!")
@@ -49,7 +47,12 @@ class CardGame:
             self.player1.set_hand(main_deck)
 
     def get_winner(self):
-        pass
+        if len(self.player1.deck) > len(self.player2.deck):
+            return self.player1
+        elif len(self.player2.deck) > len(self.player1.deck):
+            return self.player2
+        else:
+            return None
 
 
 

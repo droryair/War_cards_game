@@ -37,7 +37,7 @@ from game_cards.Cards_class import Card
 class Player:
     # initiates the player's name, his deck (empty list) and the amount of cards he starts the game with (between 10 and 26).
     # !!!שם שחקן- עניין בעייתי כי יכולים להיות שני שחקנים עם אותו השם. להוסיף מספר ששחקן (id)? !!!
-    def __init__(self, player_name='Player', player_cards_amount=26):
+    def __init__(self, player_name, player_cards_amount=26):
         """
         :param player_name: the player's name (default: 'Player')
         :param player_cards_amount: amount of cards to start the game (between 10 and 26, default: 26).
@@ -54,14 +54,15 @@ class Player:
         else:
             self.cards_amount = player_cards_amount
 
+        # initiating name and player's deck (empty list)
         self.name = str(player_name)  # turning the player's name into a string, to avoid future errors.
         self.deck = []  # player's deck will include instances of the 'Card' class.
 
     def __str__(self):
-        return f"player: {self.name}, deck(max:{self.cards_amount}): {self.deck}"
+        return f"player: {self.name}, deck({len(self.deck)}): {self.deck}"
 
     def __repr__(self):
-        return f"|player: {self.name}, deck(max:{self.cards_amount}): {self.deck}| \n"
+        return f"|player: {self.name}, deck({len(self.deck)}): {self.deck}| \n"
 
     # fills the player's deck ('self.deck') with random cards, according to the specified amount ('self.cards_amount')
     def set_hand(self, deck_of_cards: DeckOfCards):
@@ -113,6 +114,5 @@ if __name__ == '__main__':
     new_player.add_card(new_deck.deal_one())
     new_player.add_card(new_deck.deal_one())
     print(len(new_player.deck))
-
 
     # print(new_player)
