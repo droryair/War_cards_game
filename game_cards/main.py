@@ -15,6 +15,9 @@
 random.shuffle
 random.choice
 """
+
+# Last change please work
+
 from game_cards.CardGame_Class import CardGame
 
 # creating a dictionary to convert cards numbers to values names, for printing purposes.
