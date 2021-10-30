@@ -35,8 +35,8 @@ from game_cards.Cards_class import Card
 
 
 class Player:
-    # initiates the player's name, his deck (empty list) and the amount of cards he starts the game with (between 10 and 26).
-    # !!!שם שחקן- עניין בעייתי כי יכולים להיות שני שחקנים עם אותו השם. להוסיף מספר ששחקן (id)? !!!
+    # initiates the player's name, their deck (empty list) and the amount of cards they start the game with (between 10
+    # and 26).
     def __init__(self, player_name, player_cards_amount=26):
         """
         :param player_name: the player's name (default: 'Player')
@@ -44,6 +44,7 @@ class Player:
         """
         # checking for valid numbers of cards for the player (valid amount: 10 < amount < 26)
         if type(player_cards_amount) != int:
+            # turning numeric string to int
             if type(player_cards_amount) == str and player_cards_amount.isnumeric():
                 player_cards_amount = int(player_cards_amount)
             else:
@@ -68,7 +69,8 @@ class Player:
     def set_hand(self, deck_of_cards: DeckOfCards):
         """
         :param deck_of_cards: a variable of type 'DeckOfCards' class.
-        :functionality: fills the player's deck ('self.deck') with random cards, according to the specified amount ('self.cards_amount')
+        :functionality: fills the player's deck ('self.deck') with random cards,
+         according to the specified amount ('self.cards_amount').
         :return: None
         """
         # checking the type of the variable deck_of_cards
@@ -76,7 +78,8 @@ class Player:
             raise TypeError(f"deck_of_cards is not of type DeckOfCards!")
 
         for i in range(self.cards_amount):
-            # adding to 'self.deck' a random card from 'deck_of_cards', using the method 'deal_one' from the 'Card' class.
+            # adding to 'self.deck' a random card from 'deck_of_cards',
+            # using the method 'deal_one' from the 'Card' class.
             self.deck.append(deck_of_cards.deal_one())
 
     # deletes one random card from the player's deck (self.deck) and returns it.
