@@ -31,6 +31,11 @@ class Card:
     # compares between two cards, and returns boolean value.
     # also raising exceptions when encountering bugs.
     def __gt__(self, other):
+        """
+        :param other: another instance of class 'Card'.
+        :return: boolean value for whether the first card (self) is greater than the second (other)
+        """
+        # checking the type of 'other'.
         if type(other) != Card:
             raise TypeError("Got an object not from 'Card' type.")
 
@@ -39,7 +44,7 @@ class Card:
         elif self.value == other.value:
             if self.suit > other.suit:
                 return True
-
+            # taking care of possible incident: two identical cards.
             elif self.suit == other.suit:
                 raise ValueError("Got two identical cards. How can it be??")
         return False

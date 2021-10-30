@@ -11,12 +11,7 @@
 
 בתום המחשק, יודפסו פרטי השחקן שניצח במשחק. במקרה של תיקו- תודפס הודעה בהתאם.
 
-שתי פונקציות שימושיות:
-random.shuffle
-random.choice
 """
-
-# Last change please work
 
 from game_cards.CardGame_Class import CardGame
 
@@ -28,7 +23,7 @@ val_dict = {
     1: 'Ace'
 }
 
-# creating a dictionary to convert numbers to suit names , for comparing printing and purposes.
+# creating a dictionary to convert numbers to suit names ,for printing purposes.
 suit_dict = {
     1: 'Diamond',
     2: 'Spade',
@@ -36,11 +31,17 @@ suit_dict = {
     4: 'Club'
 }
 
+
+
+
+
+# gathering initial data (players' names, players' decks size)
 amount_of_cards = 26
 player_1_name = input("First player's name: ")
 player_2_name = input("Second player's name: ")
 new_game = CardGame(player_1_name, player_2_name, amount_of_cards)
 
+# generating 10 rounds of the game
 for i in range(10):
     # generating cards for both players
     p1_card = new_game.player1.get_card()

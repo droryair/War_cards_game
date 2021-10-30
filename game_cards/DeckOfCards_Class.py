@@ -7,30 +7,31 @@ A deck of cards is a list of 52 Cards. --> This is the feature(constructor) of t
 import random
 from game_cards.Cards_class import *
 
-
 """
 --init--
 we will have 2 loops: The external loop runs on the suit of the card:
 Diamond,spade,heart,club
 The internal loop runs on the value of the card:1-13 
 """
+
+
 class DeckOfCards:
 
     def __init__(self):
-        self.deck = []              # creating an empty list
-        for i in range(1,5):          # Building the deck
-                for x in range(1,14):
-                    new_card = Card(x,i)
-                    self.deck.append(new_card)
+        self.deck = []  # creating an empty list
+        for i in range(1, 5):  # Building the deck
+            for x in range(1, 14):
+                new_card = Card(x, i)
+                self.deck.append(new_card)
 
-    def cards_shuffle(self):        # This method reorganize the Deck randomly
-        if len(self.deck) == 0:      # Checks if the list of the cards is not empty
+    def cards_shuffle(self):  # This method reorganize the Deck randomly
+        if len(self.deck) == 0:  # Checks if the list of the cards is not empty
             raise ValueError("The List Deck of Cards is empty")
 
         random.shuffle(self.deck)
 
-    def deal_one(self):             # This method pulls of a random card from the deck
-        if len(self.deck) == 0:     # Checks if the list of the cards is not empty
+    def deal_one(self):  # This method pulls of a random card from the deck
+        if len(self.deck) == 0:  # Checks if the list of the cards is not empty
             raise ValueError("The List Deck of Cards is empty")
 
         if type(random.choice(self.deck)) != Card:  # Checks if the type of the cell in the deck is Card
@@ -38,15 +39,13 @@ class DeckOfCards:
 
         return self.deck.pop(self.deck.index(random.choice(self.deck)))
 
-    def __repr__(self):             # This method prints the deck
+    def __repr__(self):  # This method prints the deck
         return f"List of Cards : {self.deck}"
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     deck = DeckOfCards()
     print(deck)
     deck.cards_shuffle()
     print(deck)
     print(deck.deal_one())
-
-
-
