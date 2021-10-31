@@ -50,3 +50,5 @@ if __name__ == "__main__":
     print(deck)
 #    print(deck.deal_one())
     print(len(deck.deck))
+    print(deck.deal_one())
+    print(type(deck.deal_one()))
