@@ -77,6 +77,9 @@ class Player:
         if type(deck_of_cards) != DeckOfCards:
             raise TypeError(f"deck_of_cards is not of type DeckOfCards!")
 
+        if len(deck_of_cards.deck) < self.cards_amount:
+            raise SystemError(f"Not enough cards in the deck to give the player!")
+
         for i in range(self.cards_amount):
             # adding to 'self.deck' a random card from 'deck_of_cards',
             # using the method 'deal_one' from the 'Card' class.
@@ -88,6 +91,10 @@ class Player:
         :functionality: deletes a random card from the player's deck ('self.deck'').
         :return: the deleted card.
         """
+        # checking if getting a card is possible.
+        if len(self.deck) == 0:
+            raise ValueError(f"{self.name}'s deck is empty. cannot draw a card.")
+
         return self.deck.pop(self.deck.index(random.choice(self.deck)))
 
     # receives a variable of type 'Card' class, and adds it to the player's deck ('self.deck')
