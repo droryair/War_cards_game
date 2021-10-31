@@ -42,7 +42,7 @@ class TestPlayer(TestCase):
 
         new_player_3 = Player('Player3', '15')
         self.assertEqual(new_player_3.cards_amount, 15)
-        
+
         with self.assertRaises(ValueError):
             new_player_4 = Player('Player3', 'abc')
 

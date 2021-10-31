@@ -19,6 +19,17 @@ Cards
 
 class Card:
     def __init__(self, value, suit):
+        # checking for valid value and suit (range and type).
+        if value < 1 or value > 13:
+            raise ValueError(f"Card's value is out of range. Valid range: 1-13. value given: {value}")
+        elif type(value) != int:
+            raise TypeError(f"Card's value is out of type 'int'.The type received:{type(value)}")
+        if suit < 1 or suit > 4:
+            raise ValueError(f"Card's suit is out of range. Valid range: 1-4. value given: {suit}")
+        elif type(suit) != int:
+            raise TypeError(f"Card's suit is out of type 'int'.The type received:{type(suit)}")
+
+        # initializing value and suit.
         self.value = value
         self.suit = suit
 
@@ -29,7 +40,7 @@ class Card:
         return f"{self.value}:{self.suit}"
 
     # compares between two cards, and returns boolean value.
-    # also raising exceptions when encountering bugs.
+    # also raising exceptions when 'other' is not of type 'Card' .
     def __gt__(self, other):
         """
         :param other: another instance of class 'Card'.
