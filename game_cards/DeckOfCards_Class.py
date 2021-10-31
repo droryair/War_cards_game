@@ -43,12 +43,4 @@ class DeckOfCards:
         return f"List of Cards : {self.deck}"
 
 
-if __name__ == "__main__":
-    deck = DeckOfCards()
-    print(deck)
-    deck.cards_shuffle()
-    print(deck)
-#    print(deck.deal_one())
-    print(len(deck.deck))
-    print(deck.deal_one())
-    print(type(deck.deal_one()))
+

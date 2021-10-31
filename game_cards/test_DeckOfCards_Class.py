@@ -26,7 +26,6 @@ from game_cards.DeckOfCards_Class import DeckOfCards
 class TestDeckOfCards(TestCase):
 
     def setUp(self):
-        print('setUp')
         self.deck = DeckOfCards()
 
     def test__init__1(self):
@@ -37,18 +36,17 @@ class TestDeckOfCards(TestCase):
         self.assertEqual(len(self.deck.deck), 52)
 
     def test_cards_shuffle(self):
-        print('Test card shuffle')
         self.deck.deck = []     # update the list to be empty
         with self.assertRaises(ValueError):
             self.deck.cards_shuffle()
 
     def test_deal_one1(self):
-        print('Test deal_one')
         self.deck.deck = []     # update the list to be empty
         with self.assertRaises(ValueError):
             self.deck.deal_one()
 
     def test_deal_one2(self):
+        self.deck.deck = []
         self.deck.deck.append(1)    # adding an integer to the list type!=Card
         with self.assertRaises(TypeError):
             self.deck.deal_one()
