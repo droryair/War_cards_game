@@ -63,11 +63,3 @@ class CardGame:
             return None
 
 
-
-if __name__ == '__main__':
-    new_cardgame = CardGame('a', 'b', 23)
-    print(counter_new_game)
-    new_cardgame.new_game()
-    print(counter_new_game)
-    new_cardgame.new_game()
-    print(counter_new_game)

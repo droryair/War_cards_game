@@ -110,19 +110,3 @@ class Player:
 
         self.deck.append(card)
 
-
-if __name__ == '__main__':
-    new_card = Card(4, 4)
-    new_player = Player(234, 13)
-    new_deck = DeckOfCards()
-
-    new_player.set_hand(new_deck)
-    print(len(new_player.deck))
-    new_player.get_card()
-    print(len(new_player.deck))
-    new_player.add_card(new_deck.deal_one())
-    new_player.add_card(new_deck.deal_one())
-    new_player.add_card(new_deck.deal_one())
-    print(len(new_player.deck))
-
-    # print(new_player)
