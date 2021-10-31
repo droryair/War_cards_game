@@ -31,7 +31,7 @@ add_card
 """
 import random
 from game_cards.DeckOfCards_Class import DeckOfCards
-from game_cards.Cards_class import Card
+from game_cards.Card_class import Card
 
 
 class Player:

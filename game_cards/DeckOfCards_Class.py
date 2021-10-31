@@ -5,7 +5,7 @@ There are 4 suits to the cards, and each suit has 13 cards.-->total of 52 cards.
 A deck of cards is a list of 52 Cards. --> This is the feature(constructor) of the class
 """
 import random
-from game_cards.Cards_class import *
+from game_cards.Card_class import Card
 
 """
 --init--
