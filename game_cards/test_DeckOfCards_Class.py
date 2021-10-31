@@ -13,8 +13,9 @@ Test Descriptions:
 
 4. test_cards_shuffle - checks if the value error works in case of the list deck of cards is empty
 
-5. test_deal_one - checks 2 things: a) again if the list deck of cards is not empty
-    b) we check if the type of the cell is Card and not something else -
+5. test_deal_one1 - checks if the list deck of cards is not empty
+
+6. test_deal_one2 - we check if the type of the cell is Card and not something else -
         we do this by adding integer to the list and we see if the function fails
 """
 
@@ -41,12 +42,13 @@ class TestDeckOfCards(TestCase):
         with self.assertRaises(ValueError):
             self.deck.cards_shuffle()
 
-    def test_deal_one(self):
+    def test_deal_one1(self):
         print('Test deal_one')
         self.deck.deck = []     # update the list to be empty
         with self.assertRaises(ValueError):
             self.deck.deal_one()
 
+    def test_deal_one2(self):
         self.deck.deck.append(1)    # adding an integer to the list type!=Card
         with self.assertRaises(TypeError):
             self.deck.deal_one()
