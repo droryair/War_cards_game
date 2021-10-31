@@ -53,12 +53,15 @@ class CardGame:
         :functionality: comparing between the length of the players' decks.
         :return: The winning player, or None (in case of a tie).
         """
+        global counter_new_game
+        counter_new_game = 0
         if len(self.player1.deck) > len(self.player2.deck):
             return self.player1
         elif len(self.player2.deck) > len(self.player1.deck):
             return self.player2
         else:
             return None
+
 
 
 if __name__ == '__main__':

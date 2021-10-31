@@ -10,11 +10,13 @@ class TestCardGame(TestCase):
     def setUp(self):
         print('Set up')
         self.amount_of_card = random.randint(10 , 26)
-        self.game = CardGame('Daniel' , 'Dror ', self.amount_of_card)
+        self.game = CardGame('Daniel', 'Dror ', self.amount_of_card)
+
+    def tearDown(self):
+        self.game.get_winner() # Reset the counter
 
     def test__init__1(self):
         pass
-
 
     def test_new_game1(self):
         print('test new game 1')
@@ -27,5 +29,17 @@ class TestCardGame(TestCase):
         print(" Deck length :" , self.amount_of_card)
         self.assertEqual(len(self.game.player1.deck) , len(self.game.player2.deck))
 
-    def test_get_winner(self):
-        pass
+    def test_get_winner1(self):
+        print('test get winner')
+        self.game.player2.get_card()
+        self.assertEqual(self.game.get_winner(),self.game.player1)
+
+    def test_get_winner2(self):
+        print('test get winner')
+        self.game.player1.get_card()
+        self.assertEqual(self.game.get_winner(),self.game.player2)
+
+    def test_get_winner3(self):
+        print('test get winner')
+        self.assertEqual(len(self.game.player1.deck),len(self.game.player2.deck))
+
