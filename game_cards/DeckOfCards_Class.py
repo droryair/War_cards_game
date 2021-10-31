@@ -48,4 +48,5 @@ if __name__ == "__main__":
     print(deck)
     deck.cards_shuffle()
     print(deck)
-    print(deck.deal_one())
+#    print(deck.deal_one())
+    print(len(deck.deck))
