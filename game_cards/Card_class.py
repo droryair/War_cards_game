@@ -51,6 +51,6 @@ class Card:
 
 
 if __name__ == '__main__':
-    new_card = Card()
+    new_card1 = Card()
     new_card2 = Card()
-    print([new_card, new_card2])
+    print([new_card1, new_card2])

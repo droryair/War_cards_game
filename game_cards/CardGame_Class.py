@@ -8,7 +8,7 @@ Constructor init : gets the names of the players --> Two players in the game
 # importing all the classes
 # --------------------------
 import random
-from game_cards.Cards_class import Card
+from game_cards.Card_class import Card
 from game_cards.DeckOfCards_Class import DeckOfCards
 from game_cards.Player_Class import Player
 
@@ -74,7 +74,7 @@ class CardGame:
 
 
 if __name__ == '__main__':
-    new_cardgame = CardGame('a','b',23)
+    new_cardgame = CardGame('a', 'b', 23)
     print(counter_new_game)
     new_cardgame.new_game()
     print(counter_new_game)
