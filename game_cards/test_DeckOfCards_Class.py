@@ -11,11 +11,13 @@ Test Descriptions:
 
 3. test__init__2 - Check for identical cards to see if there is a card that appears twice or more
 
-4. test_cards_shuffle - checks if the value error works in case of the list deck of cards is empty
+4. test_cards_shuffle_1 - checks if the value error works in case of the list deck of cards is empty
 
-5. test_deal_one1 - checks if the list deck of cards is not empty
+5. test_cards_shuffle_2 - Checks if card_shuffle works
 
-6. test_deal_one2 - we check if the type of the cell is Card and not something else -
+6. test_deal_one1 - checks if the list deck of cards is not empty
+
+7. test_deal_one2 - we check if the type of the cell is Card and not something else -
         we do this by adding integer to the list and we see if the function fails
 """
 
@@ -35,10 +37,16 @@ class TestDeckOfCards(TestCase):
         self.deck.deck = set(self.deck.deck)
         self.assertEqual(len(self.deck.deck), 52)
 
-    def test_cards_shuffle(self):
+    def test_cards_shuffle_1(self):
         self.deck.deck = []     # update the list to be empty
         with self.assertRaises(ValueError):
             self.deck.cards_shuffle()
+
+    def test_cards_shuffle_2(self):
+        sorted_list = self.deck.deck.copy() # copy of self.deck.deck - store the organized list
+        self.deck.cards_shuffle() # Shuffle the deck
+        shuffle_list = self.deck.deck
+        self.assertNotEqual(sorted_list, shuffle_list) # check if the deck was shuffled
 
     def test_deal_one1(self):
         self.deck.deck = []     # update the list to be empty
