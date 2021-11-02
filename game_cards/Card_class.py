@@ -50,7 +50,9 @@ class Card:
         if type(other) != Card:
             raise TypeError("Got an object not from 'Card' type.")
 
-        if self.value > other.value:
+        if self.value == 1 and other.value != 1:
+            return True
+        elif self.value > other.value:
             return True
         elif self.value == other.value:
             if self.suit > other.suit:

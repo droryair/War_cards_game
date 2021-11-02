@@ -31,9 +31,8 @@ suit_dict = {
     4: 'Club'
 }
 
-
-
-
+print("\n---Welcome to Card Game!---")
+print("=================================")
 
 # gathering initial data (players' names, players' decks size)
 amount_of_cards = 26
@@ -43,6 +42,8 @@ new_game = CardGame(player_1_name, player_2_name, amount_of_cards)
 
 # generating 10 rounds of the game
 for i in range(10):
+    print(f"\nRound No. {i+1}")
+    print("=================")
     # generating cards for both players
     p1_card = new_game.player1.get_card()
     p2_card = new_game.player2.get_card()
@@ -68,10 +69,15 @@ for i in range(10):
 
     # comparing between the two cards, to determine who wins the round
     if p1_card > p2_card:
+        print(f"\nThe winner of the rounds is : {new_game.player1.name}\n")
         new_game.player1.add_card(p1_card)
         new_game.player1.add_card(p2_card)
     else:
+        print(f"\nThe winner of the rounds is : {new_game.player2.name}\n")
         new_game.player2.add_card(p1_card)
         new_game.player2.add_card(p2_card)
 
-print(f"The winner is: {new_game.get_winner()}")
+print(f"The winner of the game is: {new_game.get_winner()}")
+print("\n=============================")
+print("End of the Game!!")
+print("=============================")

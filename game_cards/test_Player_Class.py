@@ -73,7 +73,7 @@ class TestPlayer(TestCase):
         new_player_1 = Player('Player1', 10)
         new_player_2 = Player('Player2', 10)
         with patch('game_cards.DeckOfCards_Class.DeckOfCards.deal_one') as mock_obj:
-            # checking if the function 'set_hand' inserts the value given to it by 'del_one' into the player's deck
+            # checking if the function 'set_hand' inserts the value given to it by 'deal_one' into the player's deck
             # no matter what that value is.
 
             # valid value (instance of 'Card' class)
